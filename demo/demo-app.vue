@@ -9,6 +9,7 @@
             placeholder="Select items..."
             v-model="selected"
             :default-expand-level="0"
+            :disableBranchNodes="true"
             :autoSelectDescendants="true"
             :autoDeselectDescendants="true"
             :flat="true"
@@ -20,6 +21,7 @@
         <div>
             Selected: {{selected}}
         </div>
+        <button @click="resetFilter()">Reset Filter</button>
     </div>
 </template>
 <script>
@@ -62,6 +64,11 @@ export default defineComponent({
         return {
             treeData,
             selected
+        }
+    },
+    methods: {
+        resetFilter () {
+            this.selected = []
         }
     }
 })
